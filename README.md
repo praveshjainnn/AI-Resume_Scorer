@@ -74,8 +74,86 @@ Open your browser and go to **`http://localhost:8501`** to start using the app!
 
 ---
 
+
 ## Project Structure (For Curious Minds)
 * `backend/`: Handles all the heavy lifting (file parsing, text comparison, NLP).
 * `frontend/`: Streamlit code for the user interface.
 * `requirements.txt`: List of Python libraries this project needs.
 * `.env`: Holds your private API keys (never upload or share this file!).
+
+
+## Environment Variables Setup
+
+This project requires API keys from Supabase and Groq. Create a `.env` file in the root directory and add the following variables.
+
+### 1. Supabase Configuration
+
+Create a free account on Supabase and create a new project.
+
+Navigate to:
+
+**Project Settings → API**
+
+Copy the following values:
+
+* **SUPABASE_URL** – Your Supabase project URL.
+* **SUPABASE_ANON_KEY** – Public anonymous key.
+* **SUPABASE_KEY** – Service Role Key (used by the backend for database operations).
+* **SUPABASE_JWT_SECRET** – JWT Secret used for authentication token verification.
+
+### 2. Groq API Configuration
+
+Create a free account at Groq and generate an API key.
+
+* **GROQ_API_KEY** – Used for AI-powered resume analysis and suggestions.
+
+### `.env` File Example
+
+```env
+# ─────────────────────────────
+# SUPABASE CONFIGURATION
+# ─────────────────────────────
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_ANON_KEY=your_supabase_anon_public_key
+SUPABASE_KEY=your_supabase_service_role_key
+SUPABASE_JWT_SECRET=your_supabase_jwt_secret
+
+# ─────────────────────────────
+# GROQ API CONFIGURATION
+# ─────────────────────────────
+GROQ_API_KEY=your_groq_api_key
+```
+
+### Where to Get the Keys
+
+#### Supabase
+
+1. Go to your Supabase Dashboard.
+2. Open your project.
+3. Navigate to **Project Settings → API**.
+4. Copy the required keys and URL.
+
+#### Groq
+
+1. Visit https://console.groq.com
+2. Sign in or create an account.
+3. Generate a new API key.
+4. Paste it into your `.env` file.
+
+### Security Note
+
+Never commit your `.env` file or API keys to GitHub. Add `.env` to your `.gitignore` file before pushing your code.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
